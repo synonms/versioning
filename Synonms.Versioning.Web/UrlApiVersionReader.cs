@@ -12,8 +12,8 @@ namespace Synonms.Versioning.Web
 
             var segments = path.Value.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
 
-            if (segments.Length > 0 && Version.TryParse(segments[0], out var segment0ApiVersion)) return segment0ApiVersion;
-            if (segments.Length > 0 && Version.TryParse(segments[1], out var segment1ApiVersion)) return segment1ApiVersion;
+            if (segments.Length > 0 && Version.TryParse(segments[0].TrimStart(new[] { 'v','V' }), out var segment0ApiVersion)) return segment0ApiVersion;
+            if (segments.Length > 1 && Version.TryParse(segments[1].TrimStart(new[] { 'v', 'V' }), out var segment1ApiVersion)) return segment1ApiVersion;
 
             return default;
         }
