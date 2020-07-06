@@ -14,11 +14,11 @@ namespace Synonms.Versioning.Core
         public Version Introduced { get; }
         public Version Deprecated { get; }
 
-        public bool IsDeprecated => Deprecated != null && Deprecated.IsUnspecified();
+        public bool IsDeprecated => Deprecated != null && !Deprecated.IsUnspecified();
 
         public bool IsApplicableAtVersion(Version version)
         {
-            return version >= Introduced && (!IsDeprecated || version < Deprecated);
+            return (Introduced.IsUnspecified() || version >= Introduced) && (!IsDeprecated || version < Deprecated);
         }
 
         public static VersionHistory Merge(VersionHistory primary, VersionHistory secondary)
