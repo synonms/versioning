@@ -3,23 +3,23 @@ using System.Text.Json;
 
 namespace Synonms.Versioning.Core.Serialisation
 {
-    public class VersionableJsonSerialiser<TVersionable> : IVersionableSerialiser<TVersionable> where TVersionable : IVersionable
+    public class VersionableJsonSerialiser : IVersionableSerialiser
     {
-        public TVersionable Deserialise(string text, Version version)
+        public T Deserialise<T>(string text, Version version)
         {
             var serialiserOptions = new JsonSerializerOptions
             {
-                Converters = { new VersionableJsonConverter<TVersionable>(version) }
+                Converters = { new VersionableJsonConverterFactory(version) }
             };
 
-            return JsonSerializer.Deserialize<TVersionable>(text, serialiserOptions);
+            return JsonSerializer.Deserialize<T>(text, serialiserOptions);
         }
 
-        public string Serialise(TVersionable model, Version version)
+        public string Serialise<T>(T model, Version version)
         {
             var serialiserOptions = new JsonSerializerOptions
             {
-                Converters = { new VersionableJsonConverter<TVersionable>(version) }
+                Converters = { new VersionableJsonConverterFactory(version) }
             };
 
             return JsonSerializer.Serialize(model, serialiserOptions);

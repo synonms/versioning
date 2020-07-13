@@ -2,9 +2,9 @@
 
 namespace Synonms.Versioning.Core.Serialisation
 {
-    public interface IVersionableSerialiser<TVersionable> where TVersionable : IVersionable
+    public interface IVersionableSerialiser
     {
-        string Serialise(TVersionable model, Version version);
-        TVersionable Deserialise(string text, Version version);
+        string Serialise<T>(T model, Version version);
+        T Deserialise<T>(string text, Version version);
     }
 }

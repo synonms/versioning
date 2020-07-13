@@ -5,7 +5,7 @@ using Synonms.Versioning.Core.Extensions;
 
 namespace Synonms.Versioning.Core.Serialisation
 {
-    public class VersionableJsonConverter<TVersionable> : JsonConverter<TVersionable> where TVersionable : IVersionable
+    public class VersionableJsonConverter<TVersionable> : JsonConverter<TVersionable>
     {
         private readonly Version _version;
 
