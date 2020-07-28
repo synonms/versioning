@@ -13,17 +13,21 @@ namespace Synonms.Versioning.Swashbuckle
     {
         public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
         {
-            swaggerDoc.Paths = GetPrunedPaths(swaggerDoc.Paths, swaggerDoc.Info.Version);
-            swaggerDoc.Components.Schemas = GetPrunedSchemas(swaggerDoc.Components.Schemas, swaggerDoc.Info.Version);
+            var version = new Version(swaggerDoc.Info.Version);
+
+            swaggerDoc.Paths = GetPrunedPaths(swaggerDoc.Paths, version);
+            swaggerDoc.Components.Schemas = GetPrunedSchemas(swaggerDoc.Components.Schemas, version);
         }
 
-        private static OpenApiPaths GetPrunedPaths(OpenApiPaths paths, string swaggerDocVersion)
+        private static OpenApiPaths GetPrunedPaths(OpenApiPaths paths, Version version)
         {
+            var urlVersion = version.ToMinifiedString(true);
+
             var prunedPaths = new OpenApiPaths();
 
             foreach (var openApiPath in paths)
             {
-                if (openApiPath.Key.Contains(swaggerDocVersion))
+                if (openApiPath.Key.Contains($"{urlVersion}/"))
                 {
                     prunedPaths.Add(openApiPath.Key, openApiPath.Value);
                 }
@@ -32,9 +36,8 @@ namespace Synonms.Versioning.Swashbuckle
             return prunedPaths;
         }
 
-        private static IDictionary<string, OpenApiSchema> GetPrunedSchemas(IDictionary<string, OpenApiSchema> schemas, string swaggerDocVersion)
+        private static IDictionary<string, OpenApiSchema> GetPrunedSchemas(IDictionary<string, OpenApiSchema> schemas, Version version)
         {
-            var version = new Version(swaggerDocVersion);
             var prunedSchemas = new Dictionary<string, OpenApiSchema>();
 
             foreach (var schema in schemas.Where(s => s.Value?.Description != null))
