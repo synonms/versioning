@@ -44,7 +44,7 @@ public class MyFunkyNewData
 }
 ```
 
-##Synonms.Versioning.Core
+## Synonms.Versioning.Core
 
 Version tracking is handled by specifying Introduced and optionally Deprecated versions. The `VersionHistoryAttribute` class allows you to apply these values to classes or properties using simple annotations.
 
@@ -58,7 +58,7 @@ var isApplicable = versionHistory.IsApplicableAtVersion(requestedVersion);  // R
 
 This approach is used in the custom JSON serialisation, so that given a requested `Version`, objects or properties which are not relevant for that version can be pruned from the JSON.
 
-##Synonms.Versioning.Web
+## Synonms.Versioning.Web
 
 The Web library adds support for ASP.NET Web API, with middleware to extract the requested `Version` from the HTTP request and inject it into the HttpContext.
 
@@ -86,7 +86,7 @@ return Ok(json);
 
 ```
 
-##Synonms.Versioning.Swashbuckle
+## Synonms.Versioning.Swashbuckle
 
 The Swashbuckle library adds a document filter so that Swagger docs generated via Swashbuckle (Swashbuckle.AspNetCore.SwaggerGen) can be pruned.  To flag that a class should be included in version checking you need to apply the `VersionableSwaggerSchema` attribute:
 
