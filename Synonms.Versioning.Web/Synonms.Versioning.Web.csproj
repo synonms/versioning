@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageProjectUrl>https://github.com/synonms/versioning</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/synonms/versioning</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <Authors>Synonms</Authors>
+    <Company>NMS Development Ltd</Company>
+    <Product>Synonms Versioning (Web)</Product>
+    <Copyright>2020 NMS Development Ltd</Copyright>
+    <PackageTags>Versioning</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Synonms</Authors>
+    <Company>NMS Development Ltd</Company>
+    <Product>Synonms Versioning (Swashbuckle)</Product>
+    <Copyright>2020 NMS Development Ltd</Copyright>
+    <PackageProjectUrl>https://github.com/synonms/versioning</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/synonms/versioning</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>Versioning</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
