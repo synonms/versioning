@@ -69,9 +69,20 @@ public void ConfigureServices(IServiceCollection services)
 {
     // You can add IApiVersionReaders in here using the factory thingy
     services.AddScoped<ApiVersionMiddleware>();
-	
-	// Inject the custom JSON serialiser into your controller
-	services.AddScoped<IVersionableSerialiser, VersionableJsonSerialiser>();
+
+    // Inject the custom JSON serialiser into your controller
+    services.AddScoped<IVersionableSerialiser, VersionableJsonSerialiser>();
+}
+
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    // This must be before UseEndpoints()
+    app.UseMiddleware<ApiVersionMiddleware>();
+
+    app.UseEndpoints(endpoints => 
+    {
+        endpoints.MapControllers();
+    });
 }
 ```
 
@@ -83,7 +94,6 @@ var myResponse = //...Get your response model...
 var json = _serialiser.Serialise(myResponse, requestedVersion);  // Where _serialiser is IVersionableSerialiser injected above
 
 return Ok(json);
-
 ```
 
 ## Synonms.Versioning.Swashbuckle
@@ -107,25 +117,35 @@ You then need to add the filter in Startup.cs:
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddSwaggerGen(c => 
-	{
-	    c.SwaggerDoc("v1", new OpenApiInfo
-		{
-		    Title = "My Awesome API",
-			Description = "Do all the things",
-			Version = "1.0"
-		});
-	    c.SwaggerDoc("v2", new OpenApiInfo
-		{
-		    Title = "My Even More Awesome API",
-			Description = "Do all the things plus more",
-			Version = "2.0"
-		});
-		
-		c.EnableAnnotations();
+    {
+        c.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Title = "My Awesome API",
+            Description = "Do all the things",
+            Version = "1.0"
+        });
+        c.SwaggerDoc("v2", new OpenApiInfo
+        {
+            Title = "My Even More Awesome API",
+            Description = "Do all the things plus more",
+            Version = "2.0"
+        });
+        
+        c.EnableAnnotations();
 
         // Enable pruning of paths and schemas in Swagger docs
-		c.DocumentFilter<VersionableDocumentFilter>();
-	});
+        c.DocumentFilter<VersionableDocumentFilter>();
+    });
+}
+
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c => 
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        c.SwaggerEndpoint("/swagger/v2/swagger.json", "v2");
+    });
 }
 ```
 
