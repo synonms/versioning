@@ -11,6 +11,7 @@
     <Copyright>2020 NMS Development Ltd</Copyright>
     <PackageTags>Versioning</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>Synonms Versioning uses attributes to associate versions with classes, properties and methods. Using this mechanism you can easily tailor APIs, data and associated documentation based on the requested version without having to provide duplicate code for each version. This Web library adds support for ASP.NET Web API.</Description>
   </PropertyGroup>
 
   <ItemGroup>

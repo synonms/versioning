@@ -5,9 +5,13 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synonms.Versioning.Core", "Synonms.Versioning.Core\Synonms.Versioning.Core.csproj", "{11D8BA7D-B0DB-41BF-A1F4-FA5D9A5E8F72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synonms.Versioning.Web", "Synonms.Versioning.Web\Synonms.Versioning.Web.csproj", "{41DA4B84-6EFD-412B-9BB1-FAEDB9DBE3D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synonms.Versioning.Web", "Synonms.Versioning.Web\Synonms.Versioning.Web.csproj", "{41DA4B84-6EFD-412B-9BB1-FAEDB9DBE3D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synonms.Versioning.Swashbuckle", "Synonms.Versioning.Swashbuckle\Synonms.Versioning.Swashbuckle.csproj", "{94F0EBE0-FBA6-4E89-BEE1-760595A92620}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synonms.Versioning.Swashbuckle", "Synonms.Versioning.Swashbuckle\Synonms.Versioning.Swashbuckle.csproj", "{94F0EBE0-FBA6-4E89-BEE1-760595A92620}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synonms.Versioning.Core.Tests", "Synonms.Versioning.Core.Tests\Synonms.Versioning.Core.Tests.csproj", "{203D5D7D-83BF-4948-B8D6-C5831F60EE33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synonms.Versioning.AspNetCore.Example", "Synonms.Versioning.AspNetCore.Example\Synonms.Versioning.AspNetCore.Example.csproj", "{6C58EFBB-80DD-4E54-9CAB-D09176F25A5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{94F0EBE0-FBA6-4E89-BEE1-760595A92620}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94F0EBE0-FBA6-4E89-BEE1-760595A92620}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94F0EBE0-FBA6-4E89-BEE1-760595A92620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{203D5D7D-83BF-4948-B8D6-C5831F60EE33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{203D5D7D-83BF-4948-B8D6-C5831F60EE33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{203D5D7D-83BF-4948-B8D6-C5831F60EE33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{203D5D7D-83BF-4948-B8D6-C5831F60EE33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C58EFBB-80DD-4E54-9CAB-D09176F25A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C58EFBB-80DD-4E54-9CAB-D09176F25A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C58EFBB-80DD-4E54-9CAB-D09176F25A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C58EFBB-80DD-4E54-9CAB-D09176F25A5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

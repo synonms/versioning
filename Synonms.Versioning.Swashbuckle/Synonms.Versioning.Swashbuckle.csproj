@@ -11,6 +11,7 @@
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>Versioning</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>Synonms Versioning uses attributes to associate versions with classes, properties and methods. Using this mechanism you can easily tailor APIs, data and associated documentation based on the requested version without having to provide duplicate code for each version. This Swashbuckle add-on enables that versioning to cascade through to your Swagger docs generated with Swashbuckle.</Description>
   </PropertyGroup>
 
   <ItemGroup>

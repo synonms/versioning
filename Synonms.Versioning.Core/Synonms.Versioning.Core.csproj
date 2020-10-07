@@ -12,6 +12,7 @@
     <PackageProjectUrl>https://github.com/synonms/versioning</PackageProjectUrl>
     <PackageTags>Versioning</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>Synonms Versioning uses attributes to associate versions with classes, properties and methods. Using this mechanism you can easily tailor APIs, data and associated documentation based on the requested version without having to provide duplicate code for each version.</Description>
   </PropertyGroup>
 
   <ItemGroup>
